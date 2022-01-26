@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "date": "2022-01-01T06:00:00Z",
+    "temperatureC": 32,
+    "temperatureF": 89,
+    "summary": "Freezing"
+  },
+  {
+    "id": 2,
+    "date": "2022-01-01T06:00:00Z",
+    "temperatureC": 32,
+    "temperatureF": 89,
+    "summary": "Bracing"
+  },
+  {
+    "id": 3,
+    "date": "2022-01-01T06:00:00Z",
+    "temperatureC": 32,
+    "temperatureF": 89,
+    "summary": "Chilly"
+  },
+  {
+    "id": 4,
+    "date": "2022-01-01T06:00:00Z",
+    "temperatureC": 32,
+    "temperatureF": 89,
+    "summary": "Cool"
+  },
+  {
+    "id": 5,
+    "date": "2022-01-01T06:00:00Z",
+    "temperatureC": 32,
+    "temperatureF": 89,
+    "summary": "Mild"
+  }
+]
