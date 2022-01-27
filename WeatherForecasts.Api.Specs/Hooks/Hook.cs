@@ -13,9 +13,7 @@ namespace WeatherForecasts.Api.Specs.Hooks
     public class Hooks
     {
         private readonly IObjectContainer _objectContainer;
-        private const string BaseAddress = "http://localhost/";
         private const string AppSettingsFile = "appsettings.json";
-        public string[] Files { get; } = { "weathers.json" };
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -26,11 +24,12 @@ namespace WeatherForecasts.Api.Specs.Hooks
         public async Task RegisterServices()
         {
             var factory = GetWebApplicationFactory();
-            await EnsureDatabase(factory);
-            var client = factory.CreateDefaultClient(new Uri(BaseAddress));
-            _objectContainer.RegisterInstanceAs(client);
-            var jsonRepo = new JsonRepository(Files);
-            _objectContainer.RegisterInstanceAs(jsonRepo);
+            await ClearData(factory);
+            _objectContainer.RegisterInstanceAs(factory);
+            var jsonFilesRepo = new JsonFilesRepository();
+            _objectContainer.RegisterInstanceAs(jsonFilesRepo);
+            var repository = (IWeatherRepository)factory.Services.GetService(typeof(IWeatherRepository))!;
+            _objectContainer.RegisterInstanceAs(repository);
         }
 
         private WebApplicationFactory<Program> GetWebApplicationFactory() =>
@@ -47,13 +46,14 @@ namespace WeatherForecasts.Api.Specs.Hooks
                         services.Configure<WeatherDatabaseSettings>(configSection));
                 });
 
-        private async Task EnsureDatabase(WebApplicationFactory<Program> factory)
+        private async Task ClearData(
+            WebApplicationFactory<Program> factory)
         {
             if (factory.Services.GetService(typeof(IWeatherRepository)) 
-                is not IWeatherRepository weatherRepository) return;
-            await weatherRepository.RemoveWeathers();
-            var weathers = await new InMemoryWeatherRepository().GetWeathers();
-            await weatherRepository.AddWeathers(weathers);
+                is not IWeatherRepository repository) return;
+            var entities = await repository.GetAsync();
+            foreach (var entity in entities)
+                await repository.RemoveAsync(entity.Id);
         }
     }
 }

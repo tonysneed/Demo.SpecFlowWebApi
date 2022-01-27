@@ -4,34 +4,39 @@
     "date": "2022-01-01T06:00:00Z",
     "temperatureC": 32,
     "temperatureF": 89,
-    "summary": "Freezing"
+    "summary": "Freezing",
+    "eTag": "6e9eff61-a3ed-4339-93fb-24151149b46c"
   },
   {
     "id": 2,
     "date": "2022-01-01T06:00:00Z",
     "temperatureC": 32,
     "temperatureF": 89,
-    "summary": "Bracing"
+    "summary": "Bracing",
+    "eTag": "2b0906b5-5506-4342-afba-7b0233f1030a"
   },
   {
     "id": 3,
     "date": "2022-01-01T06:00:00Z",
     "temperatureC": 32,
     "temperatureF": 89,
-    "summary": "Chilly"
+    "summary": "Chilly",
+    "eTag": "020e54a4-2650-4952-821c-53f31a6362d9"
   },
   {
     "id": 4,
     "date": "2022-01-01T06:00:00Z",
     "temperatureC": 32,
     "temperatureF": 89,
-    "summary": "Cool"
+    "summary": "Cool",
+    "eTag": "42101f5c-d6b5-440a-9fcb-f1c277127ca3"
   },
   {
     "id": 5,
     "date": "2022-01-01T06:00:00Z",
     "temperatureC": 32,
     "temperatureF": 89,
-    "summary": "Mild"
+    "summary": "Mild",
+    "eTag": "b543e6df-5aaf-45a5-b485-50f22392c6d7"
   }
 ]
