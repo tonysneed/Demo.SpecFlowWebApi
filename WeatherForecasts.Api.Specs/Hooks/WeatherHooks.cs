@@ -10,12 +10,12 @@ using WeatherForecasts.Api.Specs.Repositories;
 namespace WeatherForecasts.Api.Specs.Hooks
 {
     [Binding]
-    public class Hooks
+    public class WeatherHooks
     {
         private readonly IObjectContainer _objectContainer;
         private const string AppSettingsFile = "appsettings.json";
 
-        public Hooks(IObjectContainer objectContainer)
+        public WeatherHooks(IObjectContainer objectContainer)
         {
             _objectContainer = objectContainer;
         }
